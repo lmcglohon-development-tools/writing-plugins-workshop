@@ -1,0 +1,7 @@
+To override some part of a locale file for the staff interface, you can just add the following structure to the local plug-in:
+plugins/local/frontend/locales/en.yml
+
+For example, to change the text in the become-user pull-down entry, put this in the en.yml file mentioned above:
+en:  
+  navbar:
+    become-user: Become Another User

@@ -1,0 +1,2 @@
+removed Record Groups from accordian panel
+moved additional description (multi-notes) outside of accordian panel and below extents

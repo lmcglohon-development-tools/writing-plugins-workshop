@@ -1,0 +1,18 @@
+shift logo on PUI to the left instead of the right
+
+Ok. I got it figured out. Here is what I had to do:
+In the plugins/local/public directory, add a new directory called assets and put the branding image in there
+In the plugins/local/public/views directory, add a new directory called shared
+In the new directory plugins/local/public/views/shared, create a file called “_header.html.erb” and put this bit in there:
+ 
+<section  id="header">
+  <div class="row">
+    <div class="col-sm-2 hidden-xs"><img class="logo" src="<%= asset_url(AppConfig[:pui_branding_img]) %>" alt="" /></div>
+    <div class="col-sm-9 h1"><% unless request.original_fullpath == '/' %>
+        <a title="<%=t('brand.title_link_text') %>" href="<%= AppConfig[:public_proxy_url] %>"><% end %> <%= t('brand.title') %><% unless request.original_fullpath == '/' %></a><% end %> </div>
+  </div>
+</section>
+Modify the config.rb file and set AppConfig[:pui_branding_img] equal to the name of the branding image in the assets directory – eg. AppConfig[:pui_branding_img] = 'aspace.small.png'
+ 
+This will make the image show up on the left. They will probably need to play around with the class values to make it look to their liking.
+

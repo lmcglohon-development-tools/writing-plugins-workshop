@@ -1,0 +1,4 @@
+o change the branding image,
+In the plugins/local/public directory, add a new directory called assets and put the branding image in there
+
+Modify the config.rb file by setting AppConfig[:pui_branding_img] equal to the name of the branding image in the assets directory – eg. AppConfig[:pui_branding_img] = 'my_branding_image.png'

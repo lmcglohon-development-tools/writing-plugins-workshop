@@ -1,0 +1,14 @@
+A plugin can add additional fields to the advanced search interface by including a search_definitions.rb file in the plugins/local directory. 
+For example, if you want to add the restrictions_apply field as the restricted boolean advanced search field for the staff interface, put this line in the plugins/local/search_definitions.rb file:
+AdvancedSearch.define_field(:name => 'restricted', :type => :boolean, :visibility => [:staff], :solr_field => 'restrictions_apply').
+Options are defined as:
+:name – used in locales file to provide value for pull-down
+:type - determines what sort of search is being performed. Valid values are :text, :boolean, :date and :enum. 
+:visibility - controls whether the field is presented in the staff or public interface (or both)
+:solr_field - controls which field is used from the underlying index.
+
+In order for the selection to display in the pull down for the advanced search correctly, an entry needs to be added to the plugins/local/frontend/locales/{language}.yml file. For this example:
+en:  
+  advanced_search:
+    boolean:      
+      restricted: Restricted?
